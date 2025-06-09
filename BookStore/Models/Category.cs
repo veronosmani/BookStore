@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace BookStore.Models
 {
@@ -8,8 +9,13 @@ namespace BookStore.Models
         public int CID { get; set; }
         
         [Required]
+        [DisplayName("Category Name")]
+        [MaxLength(30, ErrorMessage ="Category Name can't be longer than 30 characters.")]
         public string Name { get; set; }
+        [DisplayName("Display Order")]
+        [Required]
+        [Range(1, 100, ErrorMessage = "Display Order must be between 1 and 100.")]
+        public int? DisplayOrder { get; set; }
 
-        public int DisplayOrder { get; set; }
     }
 }
