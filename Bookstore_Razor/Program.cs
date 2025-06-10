@@ -1,3 +1,6 @@
+using Bookstore_Razor.Data;
+using Microsoft.EntityFrameworkCore;
+
 namespace Bookstore_Razor
 {
     public class Program
@@ -8,6 +11,8 @@ namespace Bookstore_Razor
 
             // Add services to the container.
             builder.Services.AddRazorPages();
+            builder.Services.AddDbContext<ApplicationDbContext>(options =>
+               options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
             var app = builder.Build();
 
