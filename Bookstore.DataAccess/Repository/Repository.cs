@@ -20,6 +20,7 @@ namespace BookStore.DataAccess.Repository
             _db = db;
             this.dbSet = _db.Set<T>();
             // db.Categories = _dbSet
+            _db.Products.Include(u => u.Category).Include(u => u.CategoryId);
         }
         public void Add(T entity)
         {
@@ -31,7 +32,8 @@ namespace BookStore.DataAccess.Repository
             query = query.Where(filter);    
             return query.FirstOrDefault();
         }
-        public IEnumerable<T> GetAll()
+        //Category, CoverType
+        public IEnumerable<T> GetAll(string? includeProperties = null)
         {
             IQueryable<T> query = dbSet;
             return query.ToList();
