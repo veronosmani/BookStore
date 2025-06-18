@@ -66,6 +66,18 @@
     <script src="//cdn.datatables.net/2.3.2/js/dataTables.min.js" asp-append-version="true"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="https://cdn.tiny.cloud/1/lz89y614vq3xokzmfcyfynkpx9eoybb7rb0ufxim1ieyhn3k/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+    <!-- Toastr CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css" rel="stylesheet" />
+
+    <!-- Toastr JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+
+
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>
+
+
+@section Scripts {
+    <script src="~/js/product.js"></script>
+}

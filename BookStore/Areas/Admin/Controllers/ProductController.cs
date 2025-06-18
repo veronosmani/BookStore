@@ -79,13 +79,17 @@ namespace BookStore.Areas.Admin.Controllers
                 if (productVM.Product.CID == 0)
                 {
                     _unitOfWork.Product.Add(productVM.Product);
+
+                    _unitOfWork.Save();
+                    TempData["success"] = "Product created successfully";
                 }
                 else
                 {
                     _unitOfWork.Product.Update(productVM.Product);
+
+                    _unitOfWork.Save();
+                    TempData["success"] = "Product updated successfully";
                 }
-                _unitOfWork.Save();
-                TempData["success"] = "Product created successfully";
                 return RedirectToAction("Index", "Product");
             }
             else
@@ -128,9 +132,8 @@ namespace BookStore.Areas.Admin.Controllers
 
             _unitOfWork.Product.Remove(productToBeDeleted);
             _unitOfWork.Save();
-
+            TempData["success"] = "Product deleted successfully";
             return Json(new { success = true, message = "Delete successful" });
-            
         }
 
 
