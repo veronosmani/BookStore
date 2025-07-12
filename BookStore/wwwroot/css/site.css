@@ -537,3 +537,8 @@ bg-success {
         background-color: #578553;
         border-color: #578553;
     }
+
+
+div.dt-container select.dt-input {
+    margin-right: 5px;
+}
